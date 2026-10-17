@@ -337,7 +337,7 @@
   padding: 12px 18px;
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: #ffffff;
-  border-radius: 9999px;
+  border-radius: var(--radius-btn, 12px);
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 700;
@@ -364,10 +364,10 @@
   animation: pulseBeacon 1.6s infinite ease-in-out;
 }
 
-/* Clean Minimalist Map Widget */
+/* Clean Minimalist Map Widget - Height increased by 50% (136px -> 204px) */
 .footer-map-widget {
   width: 100%;
-  height: 136px;
+  height: 204px;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);

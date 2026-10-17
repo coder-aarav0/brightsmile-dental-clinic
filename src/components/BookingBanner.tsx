@@ -20,11 +20,6 @@ export const BookingBanner: React.FC<BookingBannerProps> = ({ onOpenBooking }) =
             Schedule your appointment today and let our team take care of the rest.
           </p>
 
-          {/* Reassurance & Next Slot Availability Micro-Pill */}
-          <div className="booking-reassurance-pill">
-            <span className="reassurance-pulse-beacon" aria-hidden="true" />
-            <span>Next Available Slot: Tomorrow, 11:30 AM &bull; Zero Waiting Guarantee</span>
-          </div>
 
           {/* Primary CTA Button */}
           <div className="booking-banner-action">
