@@ -1,0 +1,14 @@
+{
+  "servers": {
+    "brainsync": {
+      "command": "node",
+      "args": [
+        "c:\\Users\\AARAV SONI\\.antigravity-ide\\extensions\\dawoodahmad.brainsync-3.0.12-universal\\dist\\mcp-server.js"
+      ],
+      "type": "stdio",
+      "env": {
+        "BRAINSYNC_ENV_FILE": "C:\\Users\\AARAV SONI\\.bsync_core\\dentist-web-template-03\\mcp-secret-env.json"
+      }
+    }
+  }
+}

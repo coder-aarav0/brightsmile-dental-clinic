@@ -1,0 +1,511 @@
+/* 🏛️ Modern Clinic Footer — Deep Navy 4-Column Dribbble Aesthetic */
+
+.modern-clinic-footer {
+  position: relative;
+  background-color: #07162c;
+  color: #e2e8f0;
+  padding: 96px 0 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+
+/* Ambient Radial Glow Layers */
+.footer-ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+}
+
+.footer-ambient-glow.glow-left {
+  top: 10%;
+  left: -5%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(25, 118, 210, 0.16) 0%, transparent 70%);
+}
+
+.footer-ambient-glow.glow-right {
+  bottom: 10%;
+  right: -5%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+}
+
+.footer-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 4-Column Responsive Grid */
+.footer-grid-4col {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1.25fr 1.35fr;
+  gap: 48px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Material Design 3 Column Headings */
+.footer-col-heading {
+  font-family: var(--font-body);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0 0 22px 0;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-col-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--brand-blue) 0%, #60a5fa 100%);
+  border-radius: 9999px;
+}
+
+/* ========================================================
+   Column 1: Brand, Mission & Glassmorphism Socials
+   ======================================================== */
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.footer-logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.footer-brand-mission {
+  font-size: 0.92rem;
+  line-height: 1.68;
+  color: #94a3b8;
+  margin: 0 0 24px 0;
+  max-width: 360px;
+}
+
+/* Subtle Glassmorphism Hover Social Icons */
+.footer-social-cluster {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.footer-glass-social {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-glass-social:hover {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: rgba(25, 118, 210, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(25, 118, 210, 0.4);
+}
+
+.footer-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: #94a3b8;
+  width: fit-content;
+}
+
+.trust-pill-icon {
+  color: #60a5fa;
+  flex-shrink: 0;
+}
+
+/* ========================================================
+   Column 2: Quick Links (Clean Slate-Gray & White Hover)
+   ======================================================== */
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.footer-nav-link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #94a3b8; /* Soft slate gray */
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+
+.footer-nav-link:hover {
+  color: #ffffff; /* Solid white on hover */
+  transform: translateX(4px);
+}
+
+.footer-nav-link.text-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+/* ========================================================
+   Column 3: Contact Details & Box-Free Operating Shifts
+   ======================================================== */
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.footer-contact-icon {
+  color: #60a5fa;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-item-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contact-primary-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.45;
+}
+
+.contact-primary-link {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-primary-link:hover {
+  color: #60a5fa;
+}
+
+.contact-secondary-text {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* Box-Free Natural Flow Operating Shifts */
+.footer-hours-block {
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+.hours-block-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.hours-clock-icon {
+  color: #60a5fa;
+  flex-shrink: 0;
+}
+
+.hours-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.live-status-beacon {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4ade80;
+  margin-left: 6px;
+}
+
+.status-dot-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+  animation: pulseBeacon 2s infinite ease-in-out;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.hours-schedule-row {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.schedule-day {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.schedule-time {
+  color: #94a3b8;
+}
+
+/* ========================================================
+   Column 4: Emergency Dental Care & Minimalist Map Widget
+   ======================================================== */
+.emergency-action-wrapper {
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.emergency-sleek-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #ffffff;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.35);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.emergency-sleek-btn:hover {
+  background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.5);
+  color: #ffffff;
+}
+
+.emergency-btn-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px #ffffff;
+  animation: pulseBeacon 1.6s infinite ease-in-out;
+}
+
+/* Clean Minimalist Map Widget */
+.footer-map-widget {
+  width: 100%;
+  height: 136px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.minimalist-map-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: contrast(1.05) opacity(0.9);
+}
+
+.map-overlay-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 14px;
+  background: rgba(7, 22, 44, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.map-landmark-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.map-directions-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #93c5fd;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.map-directions-link:hover {
+  color: #ffffff;
+}
+
+/* ========================================================
+   Bottom Bar: Copyright, Legal & Back-To-Top
+   ======================================================== */
+.footer-bottom-row {
+  margin-top: 68px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.84rem;
+  color: #64748b;
+}
+
+.footer-copyright-text {
+  color: #8da4be;
+  font-weight: 400;
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bottom-link-item {
+  color: #8da4be;
+  font-size: 0.82rem;
+}
+
+.bottom-divider {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  color: #cbd5e1;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.footer-back-to-top-btn:hover {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border-color: var(--brand-blue);
+  transform: translateY(-2px);
+}
+
+/* ========================================================
+   Responsive Breakpoints
+   ======================================================== */
+@media (max-width: 1120px) {
+  .footer-grid-4col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 680px) {
+  .modern-clinic-footer {
+    padding: 68px 0 32px;
+  }
+
+  .footer-grid-4col {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,75 @@
+/* 🎨 BrightSmile Semantic Design Tokens */
+:root {
+  /* Hero Sky Atmosphere & Frame */
+  --hero-bg-gradient: linear-gradient(145deg, #d8ecfa 0%, #c4e3fb 45%, #b2d9fb 100%);
+  --hero-frame-bg: #f8fafd;
+  --hero-card-surface: #ffffff;
+  --hero-card-translucent: rgba(255, 255, 255, 0.82);
+  --hero-card-border: rgba(255, 255, 255, 0.7);
+  --hero-pill-bg: rgba(255, 255, 255, 0.9);
+  
+  /* Brand Typography & Accents */
+  --brand-navy: #0b2545;        /* Deep navy from hero reference */
+  --brand-navy-hover: #071930;
+  --brand-navy-light: #133a6b;
+  --brand-blue: #1976d2;        /* Vibrant medical blue */
+  --brand-blue-hover: #1565c0;
+  --brand-blue-subtle: #eaf4fd; /* Soft blue tint in review cards */
+  --brand-cyan-glow: #64b5f6;
+  
+  /* Clinical Trust & WhatsApp Colors */
+  --whatsapp-green: #25d366;
+  --whatsapp-dark: #128c7e;
+  --whatsapp-glow: rgba(37, 211, 102, 0.28);
+  --success-teal: #00897b;
+  
+  /* Page Canvas & Neutral Surfaces */
+  --bg-page: #f6fafe;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-subtle: #f0f6fc;
+  
+  /* Text & Ink */
+  --text-primary: #0f243d;
+  --text-secondary: #4a617c;
+  --text-muted: #7187a0;
+  --text-white: #ffffff;
+  
+  /* Borders & Dividers */
+  --border-subtle: rgba(25, 118, 210, 0.12);
+  --border-glass: rgba(255, 255, 255, 0.75);
+  --border-card: #e2edf8;
+  
+  /* Elevation Shadows */
+  --shadow-sm: 0 4px 12px rgba(11, 37, 69, 0.04);
+  --shadow-md: 0 8px 24px rgba(11, 37, 69, 0.07);
+  --shadow-lg: 0 16px 40px rgba(11, 37, 69, 0.09);
+  --shadow-hero-card: 0 20px 60px rgba(11, 37, 69, 0.08);
+  --shadow-floating-badge: 0 12px 32px rgba(11, 37, 69, 0.08);
+  --shadow-glass-dock: 0 20px 48px rgba(11, 37, 69, 0.1);
+  --shadow-modal: 0 25px 70px rgba(11, 37, 69, 0.25);
+  
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+  
+  /* Typography Families */
+  --font-serif: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-script: 'Caveat', cursive, sans-serif;
+  
+  /* Layout Dimensions */
+  --max-width: 1240px;
+  --hero-outer-margin: 20px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --hero-outer-margin: 8px;
+  }
+}
