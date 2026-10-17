@@ -245,22 +245,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
           <div className="hero-accent-bar" />
         </div>
 
-        {/* Step 2: 24/7 Support Card (Top-Right) */}
+        {/* Step 2: 24/7 Support Card (Right Side) */}
         <div className="hero-support-card" ref={supportCardRef}>
           <div className="hero-support-iconbox">
-            <Stethoscope size={26} />
+            <Stethoscope size={24} />
           </div>
-          <div>
+          <div className="hero-support-text">
             <div className="hero-support-title-row">
               <span className="hero-support-title">24/7 Urgent Care</span>
             </div>
             <div className="hero-support-subtext">
-              Direct emergency triage &amp; priority relief whenever you need it.
+              Direct Emergency Triage
             </div>
           </div>
         </div>
 
-        {/* Step 3: Overlapping "Book Appointment" Badge */}
+        {/* Step 3: Overlapping "Book Appointment" Badge (Left Side) */}
         <button
           type="button"
           className="hero-overlap-badge"
@@ -271,13 +271,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
           <div className="badge-pill-container">
             <div className="badge-tooth-iconbox">
               <div className="badge-orbit-ring" aria-hidden="true" />
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2C8.5 2 6 4 6 7.5C6 9.5 7 11.5 7.5 13C8 14.5 7.5 17 8.5 19.5C9.5 22 10.5 22 11.5 19.5C12 18.5 12 17 12 17C12 17 12 18.5 12.5 19.5C13.5 22 14.5 22 15.5 19.5C16.5 17 16 14.5 16.5 13C17 11.5 18 9.5 18 7.5C18 4 15.5 2 12 2Z" />
               </svg>
             </div>
             <div className="badge-pill-text">
-              <span className="badge-pill-title">Book</span>
-              <span className="badge-pill-title">Appointment</span>
+              <span className="badge-pill-title">Book Appointment</span>
+              <span className="badge-pill-sub">Instant WhatsApp Triage</span>
             </div>
           </div>
         </button>

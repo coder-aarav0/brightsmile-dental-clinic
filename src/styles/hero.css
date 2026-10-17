@@ -1056,81 +1056,121 @@
   /* Support Card: positioned just a little below the right shoulder of the doctor */
   .hero-support-card {
     display: flex !important;
+    align-items: center;
     position: absolute;
-    top: 64%;
+    top: 52%;
     bottom: auto;
     right: 14px;
-    z-index: 12;
+    z-index: 14;
     background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.95);
     border-radius: 14px;
-    padding: 7px 10px;
-    gap: 7px;
-    box-shadow: 0 10px 24px -4px rgba(11, 37, 69, 0.12);
-    max-width: 180px;
-    transform: rotate(1.5deg);
+    padding: 8px 12px;
+    gap: 9px;
+    box-shadow: 0 10px 24px -4px rgba(11, 37, 69, 0.12), 0 0 0 1px rgba(216, 236, 250, 0.5);
+    max-width: 205px;
+    transform: none !important;
   }
   .hero-support-iconbox {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: var(--brand-navy);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
   }
   .hero-support-iconbox svg {
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
+  }
+  .hero-support-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
   }
   .hero-support-title {
     font-size: 0.78rem;
     font-weight: 700;
+    color: var(--brand-navy);
+    line-height: 1.2;
+    white-space: nowrap;
   }
   .hero-support-subtext {
-    font-size: 0.64rem;
-    line-height: 1.25;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   /* Circular / Pill Overlapping Book Badge: positioned near the left shoulder of the Doctor */
   .hero-overlap-badge {
     display: flex !important;
     position: absolute;
-    top: 53%;
+    top: 45%;
     bottom: auto;
     left: 14px;
-    z-index: 12;
+    z-index: 14;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
   }
   .badge-pill-container {
-    padding: 7px 11px;
-    gap: 7px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 12px;
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.95);
-    box-shadow: 0 10px 24px -4px rgba(11, 37, 69, 0.12);
+    box-shadow: 0 10px 24px -4px rgba(11, 37, 69, 0.12), 0 0 0 1px rgba(216, 236, 250, 0.5);
+    max-width: 195px;
   }
   .badge-tooth-iconbox {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(56, 189, 248, 0.22));
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
   }
   .badge-tooth-iconbox svg {
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
   }
   .badge-orbit-ring {
-    width: 38px;
-    height: 38px;
-    top: -5px;
-    left: -5px;
+    display: none;
+  }
+  .badge-pill-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
   }
   .badge-pill-title {
-    font-size: 0.76rem;
+    font-size: 0.78rem;
     font-weight: 700;
+    color: var(--brand-navy);
+    line-height: 1.2;
+    white-space: nowrap;
   }
   .badge-pill-sub {
-    font-size: 0.64rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+    line-height: 1.2;
+    white-space: nowrap;
   }
   .hero-socials {
     display: none;
@@ -1157,7 +1197,7 @@
     box-shadow: 0 14px 34px -6px rgba(11, 37, 69, 0.14);
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     z-index: 15;
   }
   .dock-services-row {
@@ -1172,53 +1212,66 @@
     align-items: center;
     justify-content: center;
     padding: 5px 2px;
-    border-radius: 8px;
+    border-radius: 9px;
     gap: 2px;
     text-align: center;
     background: #f8fafd;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #e8eff7;
     min-height: 42px;
   }
   .dock-service-iconbox {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     border-radius: 6px;
+    background: rgba(2, 132, 199, 0.1);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .dock-service-iconbox svg {
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
   }
   .dock-service-title {
-    font-size: 0.66rem;
+    font-size: 0.65rem;
     font-weight: 700;
+    color: var(--brand-navy);
     line-height: 1.15;
     white-space: nowrap;
   }
   .dock-review-box {
     max-width: 100%;
     border-top: 1px solid rgba(11, 37, 69, 0.08);
-    padding-top: 4px;
+    padding-top: 3px;
     padding-left: 0;
   }
   .dock-review-quote {
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     line-height: 1.25;
     margin-bottom: 2px;
+    color: #475569;
+    text-align: center;
   }
   .dock-review-author-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 6px;
   }
   .dock-author-avatar {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
   }
   .dock-author-name {
-    font-size: 0.7rem;
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--brand-navy);
   }
   .dock-review-stars {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
+    color: #f59e0b;
   }
 }
 
@@ -1275,11 +1328,19 @@
   }
 
   .hero-support-card {
-    top: 64%;
-    right: 8px;
-    max-width: 160px;
-    padding: 6px 8px;
-    gap: 6px;
+    top: 52%;
+    right: 10px;
+    max-width: 180px;
+    padding: 7px 10px;
+    gap: 8px;
+  }
+  .hero-support-iconbox {
+    width: 28px;
+    height: 28px;
+  }
+  .hero-support-iconbox svg {
+    width: 15px;
+    height: 15px;
   }
   .hero-support-title {
     font-size: 0.74rem;
@@ -1289,18 +1350,27 @@
   }
 
   .hero-overlap-badge {
-    top: 52%;
-    left: 8px;
+    top: 45%;
+    left: 10px;
   }
   .badge-pill-container {
-    padding: 6px 9px;
-    gap: 6px;
+    padding: 7px 10px;
+    gap: 8px;
+    max-width: 175px;
+  }
+  .badge-tooth-iconbox {
+    width: 28px;
+    height: 28px;
+  }
+  .badge-tooth-iconbox svg {
+    width: 15px;
+    height: 15px;
   }
   .badge-pill-title {
-    font-size: 0.72rem;
+    font-size: 0.74rem;
   }
   .badge-pill-sub {
-    font-size: 0.6rem;
+    font-size: 0.62rem;
   }
 
   .hero-bottom-dock {

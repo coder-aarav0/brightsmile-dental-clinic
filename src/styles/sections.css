@@ -2381,12 +2381,13 @@
     font-size: 0.78rem;
   }
 
-  /* Floating WhatsApp FAB */
+  /* Floating WhatsApp FAB: elevated above bottom dock on mobile */
   .floating-whatsapp-fab {
-    bottom: 16px;
-    right: 16px;
-    width: 52px;
-    height: 52px;
+    bottom: 84px;
+    right: 14px;
+    width: 48px;
+    height: 48px;
+    z-index: 40;
   }
 }
 
