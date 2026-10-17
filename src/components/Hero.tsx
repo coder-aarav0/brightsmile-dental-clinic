@@ -49,10 +49,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
     };
 
     const ctx = gsap.context(() => {
-      // 1. Initial State for story cards
+      // 1. Initial State for story cards and scroll-triggered elements
       gsap.set(cardGreetingRef.current, { opacity: 0, x: -35, scale: 0.9 });
       gsap.set(cardDoctorRef.current, { opacity: 0, x: -35, scale: 0.9 });
       gsap.set(scrollHintRef.current, { opacity: 0, y: 12 });
+      gsap.set(headlineRef.current, { opacity: 0 });
+      gsap.set(supportCardRef.current, { opacity: 0 });
+      gsap.set(badgeRef.current, { opacity: 0 });
+      gsap.set(dockRef.current, { opacity: 0 });
 
       // 2. Play the entrance story animation (~2.2s total)
       const introTl = gsap.timeline({
@@ -232,15 +236,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
           </div>
         </div>
 
-        {/* Step 1: Main Headline (Middle-Left) */}
+        {/* Step 1: Main Headline */}
         <div className="hero-headline-block" ref={headlineRef}>
           <div className="hero-headline">
             Confidence
-            <br />
-            starts with
-            <br />
-            a smile
-            <Sparkles className="sparkle-icon" size={28} />
+            <br className="headline-br" />
+            {' '}starts with
+            <br className="headline-br" />
+            {' '}a smile
+            <Sparkles className="sparkle-icon" size={24} />
           </div>
           <div className="hero-accent-bar" />
         </div>
