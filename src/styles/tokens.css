@@ -55,6 +55,7 @@
   --radius-lg: 24px;
   --radius-xl: 32px;
   --radius-pill: 9999px;
+  --radius-btn: 12px;           /* Unified rectangular curved-corner buttons */
   
   /* Typography Families */
   --font-serif: 'DM Serif Display', 'Playfair Display', Georgia, serif;

@@ -219,57 +219,170 @@
   transform: translateY(-1px);
 }
 
-.mobile-nav-drawer {
-  position: absolute;
-  top: calc(100% - 10px);
-  left: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 20px 48px rgba(11, 37, 69, 0.16), inset 0 1px 2px rgba(255, 255, 255, 0.95);
-  z-index: 50;
-  animation: drawerSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+/* ========================================================
+   Mobile Off-Canvas Side Drawer & Frosted Blur Backdrop
+   Covers ~65% of viewport width from the right side vertically
+   Blurred backdrop covers the remaining portion
+   ======================================================== */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(11, 37, 69, 0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: drawerFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes drawerSlideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes drawerFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.mobile-drawer-links {
+.mobile-side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 65%;
+  min-width: 270px;
+  max-width: 360px;
+  height: 100dvh;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-left: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: -14px 0 45px rgba(11, 37, 69, 0.22);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  padding: 24px 20px 28px;
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
 }
 
-.mobile-nav-link {
+.mobile-side-panel.is-open {
+  transform: translateX(0);
+}
+
+.side-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(25, 118, 210, 0.12);
+  margin-bottom: 22px;
+}
+
+.side-panel-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.side-panel-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.side-panel-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   color: var(--brand-navy);
-  padding: 10px 14px;
-  border-radius: 12px;
-  transition: background 0.15s ease;
+  letter-spacing: -0.02em;
 }
 
-.mobile-nav-link:hover {
+.side-panel-close-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 37, 69, 0.05);
+  border: 1px solid rgba(11, 37, 69, 0.1);
+  border-radius: var(--radius-btn, 12px);
+  color: var(--brand-navy);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.side-panel-close-btn:hover {
+  background: rgba(11, 37, 69, 0.12);
+  transform: scale(1.04);
+}
+
+.side-panel-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.side-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: var(--radius-btn, 12px);
+  background: rgba(248, 250, 253, 0.85);
+  border: 1px solid rgba(25, 118, 210, 0.08);
+  color: var(--brand-navy);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.side-nav-btn:hover,
+.side-nav-btn.is-active {
   background: var(--brand-blue-subtle);
   color: var(--brand-blue);
+  border-color: rgba(25, 118, 210, 0.25);
+  transform: translateX(4px);
 }
 
-.mobile-drawer-btn {
-  margin-top: 10px;
+.side-panel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(25, 118, 210, 0.1);
+}
+
+.side-action-whatsapp-btn {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 18px;
+  font-size: 0.95rem;
+  border-radius: var(--radius-btn, 12px);
+}
+
+.side-action-consult-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 18px;
+  font-size: 0.95rem;
+  border-radius: var(--radius-btn, 12px);
+}
+
+@media (min-width: 901px) {
+  .mobile-drawer-overlay,
+  .mobile-side-panel {
+    display: none !important;
+  }
 }
 
 /* 2. Doctor Center Portrait & Frame Fill */
@@ -607,7 +720,7 @@
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-btn, 12px);
   padding: 14px 26px 14px 16px;
   box-shadow: 0 18px 44px -8px rgba(11, 37, 69, 0.16), inset 0 1px 2px rgba(255, 255, 255, 0.95);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -622,7 +735,7 @@
 .badge-tooth-iconbox {
   width: 44px;
   height: 44px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-btn, 12px);
   background: var(--brand-blue-subtle);
   color: var(--brand-blue);
   display: flex;

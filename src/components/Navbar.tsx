@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { List, X } from '@phosphor-icons/react';
+import { createPortal } from 'react-dom';
+import { List, X, WhatsappLogo, CalendarPlus } from '@phosphor-icons/react';
 
 interface NavbarProps {
   onOpenBooking: (serviceId?: string) => void;
@@ -10,6 +11,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, visible = true })
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [scrollProgress, setScrollProgress] = useState<number>(0);
   const [activeSection, setActiveSection] = useState<string>('');
+
+  // Lock background scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   // Track global reading/scroll progress
   useEffect(() => {
@@ -131,50 +144,102 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, visible = true })
             {mobileMenuOpen ? <X size={22} weight="bold" /> : <List size={22} weight="bold" />}
           </button>
         </div>
-
-        {/* Mobile Drawer Dropdown */}
-        {mobileMenuOpen && (
-          <div className="mobile-nav-drawer" role="dialog" aria-label="Mobile Navigation Menu">
-            <nav className="mobile-drawer-links">
-              <a
-                href="#about"
-                className={`mobile-nav-link ${activeSection === 'about' ? 'is-active' : ''}`}
-                onClick={(e) => { e.preventDefault(); handleNavClick('#about'); }}
-              >
-                About Dr. Manish
-              </a>
-              <a
-                href="#services"
-                className={`mobile-nav-link ${activeSection === 'services' ? 'is-active' : ''}`}
-                onClick={(e) => { e.preventDefault(); handleNavClick('#services'); }}
-              >
-                Dental Services
-              </a>
-              <a
-                href="#reviews"
-                className={`mobile-nav-link ${activeSection === 'reviews' ? 'is-active' : ''}`}
-                onClick={(e) => { e.preventDefault(); handleNavClick('#reviews'); }}
-              >
-                Patient Stories
-              </a>
-              <a
-                href="#contact"
-                className={`mobile-nav-link ${activeSection === 'contact' ? 'is-active' : ''}`}
-                onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-              >
-                Clinic Info &amp; Location
-              </a>
-              <button
-                type="button"
-                className="btn-whatsapp mobile-drawer-btn"
-                onClick={() => { setMobileMenuOpen(false); onOpenBooking(); }}
-              >
-                Book via WhatsApp
-              </button>
-            </nav>
-          </div>
-        )}
       </header>
+
+      {/* Off-Canvas Mobile Navigation Side Panel & Frosted Blur Backdrop (Portaled to document.body) */}
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <>
+            {mobileMenuOpen && (
+              <div
+                className="mobile-drawer-overlay"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-hidden="true"
+              />
+            )}
+            <aside
+              id="mobile-navigation-panel"
+              className={`mobile-side-panel ${mobileMenuOpen ? 'is-open' : ''}`}
+              role="dialog"
+              aria-label="Navigation Menu"
+              aria-modal="true"
+            >
+              <div className="side-panel-header">
+                <div className="side-panel-brand">
+                  <img src="/assets/logo.svg" alt="" aria-hidden="true" className="side-panel-logo" />
+                  <span className="side-panel-title">BrightSmile</span>
+                </div>
+                <button
+                  type="button"
+                  className="side-panel-close-btn"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close navigation menu"
+                >
+                  <X size={20} weight="bold" />
+                </button>
+              </div>
+
+              <nav className="side-panel-nav" aria-label="Mobile Navigation Links">
+                <button
+                  type="button"
+                  className={`side-nav-btn ${activeSection === 'about' ? 'is-active' : ''}`}
+                  onClick={() => handleNavClick('#about')}
+                >
+                  <span>About Dr. Manish</span>
+                </button>
+                <button
+                  type="button"
+                  className={`side-nav-btn ${activeSection === 'services' ? 'is-active' : ''}`}
+                  onClick={() => handleNavClick('#services')}
+                >
+                  <span>Dental Services</span>
+                </button>
+                <button
+                  type="button"
+                  className={`side-nav-btn ${activeSection === 'reviews' ? 'is-active' : ''}`}
+                  onClick={() => handleNavClick('#reviews')}
+                >
+                  <span>Patient Stories</span>
+                </button>
+                <button
+                  type="button"
+                  className={`side-nav-btn ${activeSection === 'contact' ? 'is-active' : ''}`}
+                  onClick={() => handleNavClick('#contact')}
+                >
+                  <span>Clinic Info &amp; Hours</span>
+                </button>
+              </nav>
+
+              <div className="side-panel-actions">
+                <button
+                  type="button"
+                  className="btn-whatsapp side-action-whatsapp-btn"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenBooking();
+                  }}
+                >
+                  <WhatsappLogo size={22} weight="fill" className="whatsapp-btn-icon" />
+                  <span>Book via WhatsApp</span>
+                </button>
+
+                <button
+                  type="button"
+                  className="btn-navy side-action-consult-btn"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenBooking();
+                  }}
+                >
+                  <CalendarPlus size={20} weight="bold" />
+                  <span>Book a Visit</span>
+                </button>
+              </div>
+            </aside>
+          </>,
+          document.body
+        )}
     </>
   );
 };
+

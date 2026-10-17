@@ -401,7 +401,7 @@
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 600;
-  border-radius: 9999px;
+  border-radius: var(--radius-btn, 12px);
   border: none;
   cursor: pointer;
   box-shadow: 0 6px 22px rgba(23, 19, 58, 0.18);
@@ -476,7 +476,7 @@
   font-size: 0.86rem;
   font-weight: 500;
   padding: 9px 22px;
-  border-radius: 9999px;
+  border-radius: var(--radius-btn, 12px);
   cursor: pointer;
   border: 1px solid #e1e3ec;
   background: #ffffff;
@@ -561,7 +561,7 @@
   background: #17133a;
   color: #ffffff;
   border: none;
-  border-radius: 9999px;
+  border-radius: var(--radius-btn, 12px);
   padding: 13px 28px;
   font-family: var(--font-body);
   font-size: 0.88rem;
@@ -618,24 +618,31 @@
   transform: scale(1.15) rotate(8deg);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments: Image above information card on mobile view */
 @media (max-width: 900px) {
   .service-editorial-row {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
   }
 
+  /* Image card placed first above information card */
+  .service-editorial-media-card {
+    order: 1;
+    width: 100%;
+    min-height: 260px;
+    max-height: 360px;
+  }
+
+  /* Information card placed second below image */
   .service-editorial-text-card {
+    order: 2;
+    width: 100%;
     padding: 36px 28px;
   }
 
   .service-editorial-card-title {
     font-size: 1.75rem;
-  }
-
-  .service-editorial-media-card {
-    min-height: 280px;
-    max-height: 380px;
   }
 
   .services-editorial-heading {
@@ -675,9 +682,28 @@
     min-height: 40px;
     display: inline-flex;
     align-items: center;
+    border-radius: var(--radius-btn, 12px);
   }
 
+  .service-editorial-row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Image card strictly first */
+  .service-editorial-media-card {
+    order: 1;
+    width: 100%;
+    min-height: 200px;
+    max-height: 240px;
+    border-radius: 20px;
+  }
+
+  /* Information text card strictly second */
   .service-editorial-text-card {
+    order: 2;
+    width: 100%;
     padding: 24px 18px;
     border-radius: 20px;
   }
@@ -699,12 +725,7 @@
   .service-editorial-book-btn {
     width: 100%;
     min-height: 48px;
-  }
-
-  .service-editorial-media-card {
-    min-height: 200px;
-    max-height: 240px;
-    border-radius: 20px;
+    border-radius: var(--radius-btn, 12px);
   }
 }
 
@@ -1140,7 +1161,7 @@
   padding: 14px 32px;
   background: #17133a;
   color: #ffffff;
-  border-radius: 14px;
+  border-radius: var(--radius-btn, 12px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   font-family: var(--font-body);
   font-size: 0.96rem;
