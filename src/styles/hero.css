@@ -967,13 +967,13 @@
     object-position: center top;
   }
 
-  /* Story Onboarding placed in clean upper zone above doctor's head */
+  /* Story Onboarding: moved near the middle portion of the body of the Doctor */
   .hero-story-container {
     position: absolute;
-    top: 64px;
+    top: 47%;
     left: 14px;
-    right: 14px;
-    max-width: 360px;
+    right: auto;
+    max-width: 250px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -994,8 +994,8 @@
   }
   .story-card-doctor {
     width: 100%;
-    max-width: 330px;
-    padding: 8px 12px;
+    max-width: 250px;
+    padding: 8px 10px;
     gap: 8px;
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.94);
@@ -1005,33 +1005,40 @@
     box-shadow: 0 10px 24px -4px rgba(14, 43, 82, 0.12);
   }
   .story-doctor-icon-box {
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
     flex-shrink: 0;
   }
   .story-doctor-icon-box svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+  }
+  .story-doctor-header-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
   }
   .story-doctor-badge-tag {
-    font-size: 0.62rem;
-    padding: 1px 6px;
+    font-size: 0.6rem;
+    padding: 1px 5px;
   }
   .story-live-status-pill {
-    font-size: 0.62rem;
-    padding: 1px 6px;
+    font-size: 0.6rem;
+    padding: 1px 5px;
   }
   .story-doctor-name {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     font-weight: 700;
+    display: block;
   }
   .story-doctor-degrees {
-    font-size: 0.76rem;
+    font-size: 0.74rem;
   }
   .hero-story-scroll-hint {
     padding: 3px 10px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     border-radius: var(--radius-pill);
     background: rgba(255, 255, 255, 0.90);
     backdrop-filter: blur(16px);
@@ -1039,12 +1046,13 @@
     box-shadow: 0 4px 12px rgba(11, 37, 69, 0.06);
   }
 
-  /* Main Headline: positioned Left upper head near the left upper head of the Doctor, 0% overlay on DR */
+  /* Main Headline: positioned near the middle portion of the body of the Doctor, 0% overlay on DR */
   .hero-headline-block {
     position: absolute;
-    top: 84px;
+    top: 36%;
     left: 14px;
-    max-width: 175px;
+    right: auto;
+    max-width: 180px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
@@ -1087,7 +1095,7 @@
   .hero-support-card {
     display: flex !important;
     position: absolute;
-    top: 65%;
+    top: 64%;
     bottom: auto;
     right: 14px;
     z-index: 12;
@@ -1125,7 +1133,7 @@
   .hero-overlap-badge {
     display: flex !important;
     position: absolute;
-    top: 55%;
+    top: 53%;
     bottom: auto;
     left: 14px;
     z-index: 12;
@@ -1288,16 +1296,17 @@
   }
 
   .hero-story-container {
-    top: 56px;
+    top: 47%;
     left: 10px;
-    right: 10px;
-    max-width: 300px;
+    right: auto;
+    max-width: 235px;
     gap: 5px;
   }
   .hero-headline-block {
-    top: 72px;
+    top: 34%;
     left: 10px;
-    max-width: 160px;
+    right: auto;
+    max-width: 165px;
     padding: 7px 10px;
   }
   .hero-headline {
@@ -1305,7 +1314,7 @@
   }
 
   .hero-support-card {
-    top: 65%;
+    top: 64%;
     right: 8px;
     max-width: 160px;
     padding: 6px 8px;
@@ -1319,7 +1328,7 @@
   }
 
   .hero-overlap-badge {
-    top: 55%;
+    top: 52%;
     left: 8px;
   }
   .badge-pill-container {
