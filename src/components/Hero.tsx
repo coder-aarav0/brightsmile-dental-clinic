@@ -35,7 +35,25 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
   }, [onIntroComplete]);
 
   useEffect(() => {
-    if (!heroWrapperRef.current) return;
+    let lastWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+    const setHeroLockedHeight = () => {
+      if (typeof window !== 'undefined' && heroWrapperRef.current) {
+        const currentWidth = window.innerWidth;
+        if (currentWidth <= 860) {
+          heroWrapperRef.current.style.setProperty('--hero-locked-height', `${window.innerHeight}px`);
+        }
+        lastWidth = currentWidth;
+      }
+    };
+    setHeroLockedHeight();
+
+    const handleResize = () => {
+      if (typeof window !== 'undefined' && window.innerWidth !== lastWidth) {
+        setHeroLockedHeight();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', setHeroLockedHeight);
 
     let hasTriggeredIntroFinish = false;
     const finishIntro = () => {
@@ -47,6 +65,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
         }
       }
     };
+
+    // Configure ScrollTrigger to ignore mobile address bar resize jitters
+    ScrollTrigger.config({
+      ignoreMobileResize: true,
+      autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load',
+    });
 
     const ctx = gsap.context(() => {
       // 1. Initial State for story cards and scroll-triggered elements
@@ -111,9 +135,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
         scrollTrigger: {
           trigger: heroWrapperRef.current,
           start: 'top top',
-          end: isMobile ? '+=120%' : '+=160%',
+          end: isMobile ? '+=60%' : '+=160%',
           pin: true,
-          scrub: 1,
+          scrub: isMobile ? 0.4 : 1,
           anticipatePin: 1,
           onUpdate: (self) => {
             // Immediate safety fallback: if user scrolls before timer ends, reveal everything immediately
@@ -132,33 +156,33 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
           y: -25,
           scale: 0.95,
           ease: 'power2.in',
-          duration: 0.5,
+          duration: isMobile ? 0.3 : 0.5,
         },
         0
       );
 
-      // Step 1: Left Reveal - Headline takes over
+      // Step 1: Left Reveal - Headline takes over (Desktop)
       tl.fromTo(
         headlineRef.current,
         { opacity: 0, x: isMobile ? -20 : -60, y: 20 },
-        { opacity: 1, x: 0, y: 0, ease: 'power2.out', duration: 1 },
-        0.15
+        { opacity: 1, x: 0, y: 0, ease: 'power2.out', duration: isMobile ? 0.4 : 1 },
+        isMobile ? 0.1 : 0.15
       );
 
       // Step 2: Right Reveal - Tilted 24/7 Support Card
       tl.fromTo(
         supportCardRef.current,
         { opacity: 0, x: isMobile ? 20 : 60, y: 20, rotate: 0 },
-        { opacity: 1, x: 0, y: 0, rotate: isMobile ? 2 : 4, ease: 'power2.out', duration: 1 },
-        0.35
+        { opacity: 1, x: 0, y: 0, rotate: isMobile ? 0 : 4, ease: 'power2.out', duration: isMobile ? 0.4 : 1 },
+        isMobile ? 0.15 : 0.35
       );
 
       // Step 3: Middle Overlap - Circular "Book Appointment" Badge
       tl.fromTo(
         badgeRef.current,
-        { opacity: 0, scale: 0.3, y: 20 },
-        { opacity: 1, scale: 1, y: 0, ease: 'back.out(1.7)', duration: 0.8 },
-        0.5
+        { opacity: 0, scale: 0.5, y: 20 },
+        { opacity: 1, scale: 1, y: 0, ease: 'back.out(1.5)', duration: isMobile ? 0.4 : 0.8 },
+        isMobile ? 0.2 : 0.5
       );
 
       // Step 4: Bottom Socials Fade In
@@ -172,13 +196,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
       // Step 5: Bottom Dock Reveal (clean centering on both desktop and mobile)
       tl.fromTo(
         dockRef.current,
-        { opacity: 0, y: isMobile ? 35 : 80, xPercent: isMobile ? 0 : -50 },
-        { opacity: 1, y: 0, xPercent: isMobile ? 0 : -50, ease: 'power3.out', duration: 1 },
-        isMobile ? 0.55 : 0.85
+        { opacity: 0, y: isMobile ? 30 : 80, xPercent: isMobile ? 0 : -50 },
+        { opacity: 1, y: 0, xPercent: isMobile ? 0 : -50, ease: 'power3.out', duration: isMobile ? 0.45 : 1 },
+        isMobile ? 0.25 : 0.85
       );
     }, heroWrapperRef);
 
     return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', setHeroLockedHeight);
       ctx.revert();
     };
   }, []);
@@ -325,6 +351,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
 
         {/* Step 5: Wide Bottom Dock */}
         <div className="hero-bottom-dock" ref={dockRef}>
+          {/* Card Crown Header for Mobile: Confidence starts with a smile */}
+          <div className="dock-card-header">
+            <div className="dock-card-title-row">
+              <span className="dock-card-title">Confidence starts with a smile</span>
+              <Sparkles className="dock-card-sparkle" size={16} />
+            </div>
+            <div className="dock-card-accent-bar" />
+          </div>
+
           {/* Left: 3 Core Services */}
           <div className="dock-services-row">
             <button

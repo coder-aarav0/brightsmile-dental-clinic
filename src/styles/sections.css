@@ -2383,7 +2383,7 @@
 
   /* Floating WhatsApp FAB: elevated above bottom dock on mobile */
   .floating-whatsapp-fab {
-    bottom: 84px;
+    bottom: 220px;
     right: 14px;
     width: 48px;
     height: 48px;
