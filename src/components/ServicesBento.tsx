@@ -95,6 +95,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ onOpenBooking }) =
                   alt={service.name}
                   className="service-editorial-photo"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="service-photo-sparkle" aria-hidden="true">
                   <Sparkle size={18} weight="fill" />

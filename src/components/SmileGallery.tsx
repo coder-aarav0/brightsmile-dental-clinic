@@ -68,6 +68,8 @@ export const SmileGallery: React.FC = () => {
               src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80"
               alt="Before Dental Whitening Treatment"
               className="comparison-image-before"
+              loading="lazy"
+              decoding="async"
             />
 
             {/* After Image (Clipped) */}
@@ -85,6 +87,8 @@ export const SmileGallery: React.FC = () => {
                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80"
                 alt="After Dental Whitening Treatment"
                 className="comparison-image-after"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 

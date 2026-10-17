@@ -221,9 +221,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
         {/* Center Doctor Portrait */}
         <div className="hero-doctor-container">
           <img
-            src="/assets/doctor-hero.png"
+            src="/assets/doctor-hero.webp"
             alt={`${DOCTOR_DATA.name} — Principal Dental Surgeon`}
             className="hero-doctor-img"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
           />
         </div>
 
@@ -422,6 +425,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
                   src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=80&h=80&q=80"
                   alt="Maria Langer"
                   className="dock-author-avatar"
+                  loading="lazy"
+                  decoding="async"
+                  width="36"
+                  height="36"
                 />
                 <span className="dock-author-name">Maria Langer</span>
               </div>

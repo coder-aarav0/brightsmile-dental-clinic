@@ -210,6 +210,7 @@ export const PatientTestimonials: React.FC = () => {
                   alt={review.patientName}
                   className="testimonial-author-avatar"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="testimonial-author-meta">
                   <h3 className="testimonial-author-name">{review.patientName}</h3>

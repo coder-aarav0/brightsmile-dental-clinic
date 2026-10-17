@@ -39,6 +39,7 @@ export const Reviews: React.FC = () => {
                   alt={review.patientName}
                   className="review-patient-avatar"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="review-patient-meta">
                   <div className="review-patient-name">

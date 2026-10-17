@@ -49,9 +49,11 @@ export const AboutDoctor: React.FC<AboutDoctorProps> = ({ onOpenBooking }) => {
           <div className="doctor-media-col">
             <div className="doctor-card-frame">
               <img
-                src="/assets/doctor-hero.png"
+                src="/assets/doctor-hero.webp"
                 alt={`${DOCTOR_DATA.name} — Principal Dental Surgeon`}
                 className="doctor-profile-img"
+                loading="lazy"
+                decoding="async"
               />
               <div className="doctor-gradient-scrim" />
               <div className="doctor-specular-glare" aria-hidden="true" />
