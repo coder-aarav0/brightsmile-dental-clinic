@@ -102,11 +102,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
       );
 
       // 3. ScrollTrigger Scrollytelling Timeline
+      const isMobile = window.innerWidth <= 860;
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: heroWrapperRef.current,
           start: 'top top',
-          end: '+=160%',
+          end: isMobile ? '+=120%' : '+=160%',
           pin: true,
           scrub: 1,
           anticipatePin: 1,
@@ -124,7 +125,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
         storyContainerRef.current,
         {
           opacity: 0,
-          y: -30,
+          y: -25,
           scale: 0.95,
           ease: 'power2.in',
           duration: 0.5,
@@ -135,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
       // Step 1: Left Reveal - Headline takes over
       tl.fromTo(
         headlineRef.current,
-        { opacity: 0, x: -60, y: 30 },
+        { opacity: 0, x: isMobile ? -25 : -60, y: 25 },
         { opacity: 1, x: 0, y: 0, ease: 'power2.out', duration: 1 },
         0.15
       );
@@ -143,15 +144,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
       // Step 2: Right Reveal - Tilted 24/7 Support Card
       tl.fromTo(
         supportCardRef.current,
-        { opacity: 0, x: 60, y: 30, rotate: 0 },
-        { opacity: 1, x: 0, y: 0, rotate: 4, ease: 'power2.out', duration: 1 },
+        { opacity: 0, x: isMobile ? 25 : 60, y: 25, rotate: 0 },
+        { opacity: 1, x: 0, y: 0, rotate: isMobile ? 2 : 4, ease: 'power2.out', duration: 1 },
         0.35
       );
 
       // Step 3: Middle Overlap - Circular "Book Appointment" Badge
       tl.fromTo(
         badgeRef.current,
-        { opacity: 0, scale: 0.3, y: 30 },
+        { opacity: 0, scale: 0.3, y: 25 },
         { opacity: 1, scale: 1, y: 0, ease: 'back.out(1.7)', duration: 0.8 },
         0.5
       );
@@ -159,7 +160,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
       // Step 4: Bottom Socials Fade In
       tl.fromTo(
         socialsRef.current,
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 25 },
         { opacity: 1, y: 0, ease: 'power2.out', duration: 0.6 },
         0.7
       );
@@ -167,7 +168,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
       // Step 5: Bottom Dock Reveal
       tl.fromTo(
         dockRef.current,
-        { opacity: 0, y: 80 },
+        { opacity: 0, y: isMobile ? 50 : 80 },
         { opacity: 1, y: 0, ease: 'power3.out', duration: 1 },
         0.85
       );

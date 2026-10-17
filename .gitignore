@@ -47,3 +47,6 @@ CLAUDE.md
 .windsurfrules
 .gemini/
 .cline/
+
+.vercel
+.env*

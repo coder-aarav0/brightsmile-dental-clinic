@@ -181,9 +181,10 @@ input, select, textarea {
   box-shadow: 0 8px 25px rgba(18, 140, 126, 0.35);
 }
 
-/* Dev-only Agentation Toolbar placement to avoid covering bottom FAB */
+/* Dev-only Agentation Toolbar placement to avoid covering mobile header or bottom FAB */
 .agentation-top-right {
-  top: 16px !important;
-  bottom: auto !important;
-  right: 16px !important;
+  top: auto !important;
+  bottom: 24px !important;
+  left: 20px !important;
+  right: auto !important;
 }

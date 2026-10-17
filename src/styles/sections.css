@@ -645,20 +645,66 @@
 
 @media (max-width: 600px) {
   .services-editorial-section {
-    padding: 68px 16px 84px;
+    padding: 48px 12px 64px;
   }
 
   .services-editorial-heading {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
+  }
+
+  .services-filter-cluster {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 4px 4px 12px;
+    gap: 8px;
+    margin-bottom: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .services-filter-cluster::-webkit-scrollbar {
+    display: none;
   }
 
   .service-filter-pill {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     padding: 8px 16px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .service-editorial-text-card {
+    padding: 24px 18px;
+    border-radius: 20px;
   }
 
   .service-editorial-card-title {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
+    margin-bottom: 10px;
+  }
+
+  .service-editorial-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .service-text-bottom {
+    margin-top: 20px;
+  }
+
+  .service-editorial-book-btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .service-editorial-media-card {
+    min-height: 200px;
+    max-height: 240px;
+    border-radius: 20px;
   }
 }
 
@@ -2199,59 +2245,167 @@
 }
 
 @media (max-width: 768px) {
+  /* Stats Strip: Ergonomic 2x2 Clean Cards */
+  .stats-strip-section {
+    padding: 24px 0;
+  }
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
-  .stat-item:nth-child(2) {
+  .stat-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 12px 14px;
+    gap: 10px;
     border-right: none;
+    border-bottom: none;
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.04);
   }
-  .services-showcase-grid {
+  .stat-iconbox {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+  .stat-number {
+    font-size: 1.45rem;
+  }
+  .stat-label {
+    font-size: 0.74rem;
+    line-height: 1.25;
+  }
+
+  /* About Doctor */
+  .about-doctor-section {
+    padding: 48px 0 60px;
+  }
+  .about-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .doctor-card-frame {
+    border-radius: 24px;
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .doctor-floating-badge.glass-panel {
+    padding: 12px 16px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    border-radius: 16px;
+  }
+  .badge-doctor-name {
+    font-size: 1.1rem;
+  }
+  .badge-doctor-qual {
+    font-size: 0.8rem;
+  }
+  .badge-doctor-inst {
+    font-size: 0.72rem;
+  }
+  .doctor-seal-pill {
+    top: 12px;
+    left: 12px;
+    padding: 5px 10px;
+    font-size: 0.72rem;
+  }
+  .about-paragraph {
+    font-size: 0.94rem;
+    line-height: 1.62;
+    margin-bottom: 24px;
   }
   .doctor-pledges-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
   }
-  .reviews-grid {
-    grid-template-columns: 1fr;
+  .pledge-card.glass-card {
+    padding: 16px 18px;
+    border-radius: 18px;
   }
-  .service-select-grid {
-    grid-template-columns: 1fr;
+  .pledge-title {
+    font-size: 0.98rem;
   }
-  .slot-chips-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .pledge-desc {
+    font-size: 0.82rem;
+    line-height: 1.45;
   }
-  .footer-main-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  .footer-bottom-bar {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-  }
-  .footer-links-row {
+  .about-cta-btn {
+    width: 100%;
     justify-content: center;
+    min-height: 48px;
+    font-size: 0.92rem;
+  }
+
+  /* Testimonials Track Mobile Swipe */
+  .testimonials-section {
+    padding: 56px 0 68px;
+  }
+  .testimonials-header-container {
+    margin-bottom: 28px;
+    padding: 0 16px;
+  }
+  .testimonials-headline {
+    font-size: clamp(1.65rem, 6vw, 2.2rem);
+  }
+  .testimonials-track {
+    padding: 10px 16px 20px;
+    gap: 14px;
+  }
+  .testimonial-card {
+    flex: 0 0 calc(100vw - 44px);
+    max-width: 400px;
+    padding: 22px 18px;
+    border-radius: 20px;
+    min-height: auto;
+  }
+  .testimonial-nav-btn {
+    display: none;
+  }
+
+  /* Before-After Comparison Slider */
+  .comparison-wrapper {
+    margin: 32px 0 0;
+    border-radius: 20px;
+  }
+  .comparison-slider-container {
+    touch-action: pan-y;
+  }
+  .slider-labels-row {
+    padding: 12px 16px;
+  }
+  .slider-label-pill {
+    font-size: 0.78rem;
+  }
+
+  /* Floating WhatsApp FAB */
+  .floating-whatsapp-fab {
+    bottom: 16px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
   }
 }
 
 @media (max-width: 480px) {
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
   .stat-item {
-    border-right: none;
-    border-bottom: 1px solid var(--border-card);
+    padding: 10px 12px;
   }
-  .tech-grid {
-    grid-template-columns: 1fr;
+  .stat-number {
+    font-size: 1.35rem;
   }
-  .station-form-card {
-    padding: 22px 18px;
+  .stat-label {
+    font-size: 0.68rem;
   }
+  .station-form-card,
   .station-preview-card {
-    padding: 22px 18px;
-  }
-  .quick-services-select-grid {
-    grid-template-columns: 1fr;
+    padding: 18px 14px;
   }
 }
