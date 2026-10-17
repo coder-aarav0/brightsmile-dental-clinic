@@ -503,34 +503,13 @@
 .sparkle-icon {
   position: absolute;
   pointer-events: none;
-}
-
-.sparkle-top {
-  top: -14px;
-  right: 28px;
-  color: #f59e0b;
-  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.65));
-  animation: sparkleTwinkle 3.2s ease-in-out infinite;
-}
-
-.sparkle-bottom {
   bottom: 8px;
-  right: 14px;
-  color: #0284c7;
-  filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.6));
-  animation: sparkleTwinkle 3.2s ease-in-out 1.6s infinite;
-}
-
-@keyframes sparkleTwinkle {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 0.85;
-  }
-  50% {
-    transform: scale(1.25) rotate(18deg);
-    opacity: 1;
-    filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.9));
-  }
+  right: 18px;
+  width: 28px;
+  height: 28px;
+  color: var(--brand-blue);
+  animation: none !important;
+  filter: drop-shadow(0 2px 6px rgba(2, 132, 199, 0.4));
 }
 
 .hero-accent-bar {
@@ -929,36 +908,25 @@
     border-radius: 24px;
   }
 
-  /* 👨‍⚕️ Center Doctor Portrait: Positioned below top card zone so Dr. Manish's face is 100% visible */
+  /* 👨‍⚕️ Center Doctor Portrait: Spans entire hero frame seamlessly with zero seam */
   .hero-doctor-container {
     position: absolute;
-    top: 175px;
+    inset: 0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
-    height: calc(100% - 175px);
+    height: 100%;
     z-index: 2;
     pointer-events: none;
     overflow: hidden;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
   }
   .hero-doctor-container::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(216, 236, 250, 0.75) 0%,
-      rgba(216, 236, 250, 0.15) 15%,
-      transparent 30%,
-      transparent 70%,
-      rgba(196, 227, 251, 0.85) 100%
-    );
-    pointer-events: none;
-    z-index: 3;
+    display: none;
   }
   .hero-doctor-img {
     width: 100%;
@@ -967,13 +935,13 @@
     object-position: center top;
   }
 
-  /* Story Onboarding: moved near the middle portion of the body of the Doctor */
+  /* Story Onboarding: positioned near the biceps of the Doctor, above folded hands */
   .hero-story-container {
     position: absolute;
-    top: 47%;
+    top: 57%;
     left: 14px;
     right: auto;
-    max-width: 250px;
+    max-width: 220px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -994,7 +962,7 @@
   }
   .story-card-doctor {
     width: 100%;
-    max-width: 250px;
+    max-width: 220px;
     padding: 8px 10px;
     gap: 8px;
     border-radius: 14px;
@@ -1046,49 +1014,43 @@
     box-shadow: 0 4px 12px rgba(11, 37, 69, 0.06);
   }
 
-  /* Main Headline: positioned near the middle portion of the body of the Doctor, 0% overlay on DR */
+  /* Main Headline: pure typography placed gently in the upper portion above the doctor's head (no card container) */
   .hero-headline-block {
     position: absolute;
-    top: 36%;
-    left: 14px;
+    top: 76px;
+    left: 16px;
     right: auto;
-    max-width: 180px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    border: 1px solid rgba(255, 255, 255, 0.98);
-    border-radius: 16px;
-    padding: 9px 12px;
-    box-shadow: 0 14px 32px -6px rgba(11, 37, 69, 0.14), 0 0 0 1px rgba(216, 236, 250, 0.6);
+    max-width: 215px;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-radius: 0;
+    padding: 0 !important;
+    box-shadow: none !important;
     z-index: 15;
   }
   .hero-headline {
-    font-size: clamp(1.18rem, 3.6vw, 1.38rem);
-    line-height: 1.15;
-    margin-bottom: 5px;
+    font-size: clamp(1.22rem, 3.8vw, 1.45rem);
+    line-height: 1.12;
+    margin-bottom: 6px;
     color: var(--brand-navy);
+    letter-spacing: -0.025em;
   }
   .hero-accent-bar {
-    width: 32px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--brand-blue), #38bdf8);
+    width: 34px;
+    height: 3.5px;
+    background: var(--brand-blue);
     border-radius: var(--radius-pill);
   }
-  .sparkle-top {
-    top: -8px;
-    right: 8px;
-    width: 20px;
-    height: 20px;
-    color: #f59e0b;
-    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.7));
-  }
-  .sparkle-bottom {
-    bottom: 5px;
-    right: 8px;
-    width: 17px;
-    height: 17px;
-    color: #0284c7;
-    filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.6));
+  .sparkle-icon {
+    bottom: 4px;
+    right: 4px;
+    width: 18px;
+    height: 18px;
+    color: var(--brand-blue);
+    animation: none !important;
+    filter: drop-shadow(0 1px 3px rgba(2, 132, 199, 0.4));
   }
 
   /* Support Card: positioned just a little below the right shoulder of the doctor */
@@ -1289,28 +1251,27 @@
     border-radius: 8px;
   }
 
-  /* Doctor portrait starts below top card area */
   .hero-doctor-container {
-    top: 165px;
-    height: calc(100% - 165px);
+    top: 0;
+    height: 100%;
   }
 
   .hero-story-container {
-    top: 47%;
+    top: 57%;
     left: 10px;
     right: auto;
-    max-width: 235px;
+    max-width: 210px;
     gap: 5px;
   }
   .hero-headline-block {
-    top: 34%;
-    left: 10px;
+    top: 72px;
+    left: 12px;
     right: auto;
-    max-width: 165px;
-    padding: 7px 10px;
+    max-width: 195px;
+    padding: 0 !important;
   }
   .hero-headline {
-    font-size: 1.12rem;
+    font-size: 1.18rem;
   }
 
   .hero-support-card {

@@ -240,8 +240,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
             starts with
             <br />
             a smile
-            <Sparkles className="sparkle-icon sparkle-top" size={32} />
-            <Sparkles className="sparkle-icon sparkle-bottom" size={28} />
+            <Sparkles className="sparkle-icon" size={28} />
           </div>
           <div className="hero-accent-bar" />
         </div>
