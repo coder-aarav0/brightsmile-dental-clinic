@@ -136,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
       // Step 1: Left Reveal - Headline takes over
       tl.fromTo(
         headlineRef.current,
-        { opacity: 0, x: isMobile ? -25 : -60, y: 25 },
+        { opacity: 0, x: isMobile ? -20 : -60, y: 20 },
         { opacity: 1, x: 0, y: 0, ease: 'power2.out', duration: 1 },
         0.15
       );
@@ -144,7 +144,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
       // Step 2: Right Reveal - Tilted 24/7 Support Card
       tl.fromTo(
         supportCardRef.current,
-        { opacity: 0, x: isMobile ? 25 : 60, y: 25, rotate: 0 },
+        { opacity: 0, x: isMobile ? 20 : 60, y: 20, rotate: 0 },
         { opacity: 1, x: 0, y: 0, rotate: isMobile ? 2 : 4, ease: 'power2.out', duration: 1 },
         0.35
       );
@@ -152,7 +152,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
       // Step 3: Middle Overlap - Circular "Book Appointment" Badge
       tl.fromTo(
         badgeRef.current,
-        { opacity: 0, scale: 0.3, y: 25 },
+        { opacity: 0, scale: 0.3, y: 20 },
         { opacity: 1, scale: 1, y: 0, ease: 'back.out(1.7)', duration: 0.8 },
         0.5
       );
@@ -165,12 +165,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onIntroComplete }) =>
         0.7
       );
 
-      // Step 5: Bottom Dock Reveal
+      // Step 5: Bottom Dock Reveal (clean centering on both desktop and mobile)
       tl.fromTo(
         dockRef.current,
-        { opacity: 0, y: isMobile ? 50 : 80 },
-        { opacity: 1, y: 0, ease: 'power3.out', duration: 1 },
-        0.85
+        { opacity: 0, y: isMobile ? 35 : 80, xPercent: isMobile ? 0 : -50 },
+        { opacity: 1, y: 0, xPercent: isMobile ? 0 : -50, ease: 'power3.out', duration: 1 },
+        isMobile ? 0.55 : 0.85
       );
     }, heroWrapperRef);
 

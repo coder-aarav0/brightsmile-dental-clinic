@@ -925,10 +925,22 @@
     min-height: calc(100dvh - 20px);
     border-radius: 24px;
   }
+
+  /* 👨‍⚕️ Center Doctor Portrait: Positioned below top card zone so Dr. Manish's face is 100% visible */
   .hero-doctor-container {
-    inset: 0;
+    position: absolute;
+    top: 175px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 175px);
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
   }
   .hero-doctor-container::after {
     content: '';
@@ -936,189 +948,243 @@
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(216, 236, 250, 0.45) 0%,
-      rgba(216, 236, 250, 0.08) 25%,
-      rgba(255, 255, 255, 0.05) 50%,
-      rgba(216, 236, 250, 0.5) 75%,
-      #c4e3fb 100%
+      rgba(216, 236, 250, 0.75) 0%,
+      rgba(216, 236, 250, 0.15) 15%,
+      transparent 30%,
+      transparent 70%,
+      rgba(196, 227, 251, 0.85) 100%
     );
     pointer-events: none;
     z-index: 3;
   }
   .hero-doctor-img {
-    object-position: center 20%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
-  /* Story Onboarding placed elegantly on top shoulder area */
+  /* Story Onboarding placed in clean upper zone above doctor's head */
   .hero-story-container {
-    top: 80px;
-    left: 16px;
-    right: 16px;
+    position: absolute;
+    top: 64px;
+    left: 14px;
+    right: 14px;
     max-width: 360px;
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 6px;
     z-index: 15;
   }
   .story-card-greeting {
-    padding: 6px 14px;
+    padding: 4px 12px;
     border-radius: var(--radius-pill);
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 14px rgba(11, 37, 69, 0.08);
   }
   .story-greeting-text {
-    font-size: 1.05rem;
+    font-size: 0.88rem;
   }
   .story-card-doctor {
     width: 100%;
-    max-width: 340px;
-    padding: 10px 14px;
-    gap: 10px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(24px);
-    box-shadow: 0 14px 34px -8px rgba(14, 43, 82, 0.14);
-  }
-  .story-doctor-icon-box {
-    width: 38px;
-    height: 38px;
-    border-radius: 12px;
-  }
-  .story-doctor-name {
-    font-size: 1.05rem;
-  }
-  .story-doctor-degrees {
-    font-size: 0.85rem;
-  }
-  .hero-story-scroll-hint {
-    padding: 6px 14px;
-    font-size: 0.78rem;
-    background: rgba(255, 255, 255, 0.88);
-  }
-
-  /* Main Headline with frosted glass card backing for 100% contrast */
-  .hero-headline-block {
-    top: 80px;
-    left: 16px;
-    right: 16px;
-    max-width: 340px;
-    background: rgba(255, 255, 255, 0.88);
+    max-width: 330px;
+    padding: 8px 12px;
+    gap: 8px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 16px 18px;
-    box-shadow: 0 16px 40px -10px rgba(11, 37, 69, 0.14);
+    box-shadow: 0 10px 24px -4px rgba(14, 43, 82, 0.12);
+  }
+  .story-doctor-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .story-doctor-icon-box svg {
+    width: 18px;
+    height: 18px;
+  }
+  .story-doctor-badge-tag {
+    font-size: 0.62rem;
+    padding: 1px 6px;
+  }
+  .story-live-status-pill {
+    font-size: 0.62rem;
+    padding: 1px 6px;
+  }
+  .story-doctor-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+  .story-doctor-degrees {
+    font-size: 0.76rem;
+  }
+  .hero-story-scroll-hint {
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.06);
+  }
+
+  /* Main Headline: compact card in upper zone, leaving doctor's eyes and smile 100% unobstructed */
+  .hero-headline-block {
+    position: absolute;
+    top: 64px;
+    left: 14px;
+    right: 14px;
+    max-width: 310px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 10px 14px;
+    box-shadow: 0 12px 28px -6px rgba(11, 37, 69, 0.12);
+    z-index: 15;
   }
   .hero-headline {
-    font-size: clamp(1.8rem, 5.5vw, 2.35rem);
+    font-size: clamp(1.35rem, 4.8vw, 1.6rem);
     line-height: 1.15;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
   .hero-accent-bar {
-    width: 44px;
+    width: 36px;
     height: 3px;
   }
   .sparkle-top {
-    top: -10px;
-    right: 14px;
+    top: -6px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
   }
   .sparkle-bottom {
-    bottom: 6px;
-    right: 14px;
+    bottom: 4px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
   }
 
-  /* Support Card floating pill on mobile */
+  /* Support Card floating pill: positioned on lower right above dock, away from doctor's face */
   .hero-support-card {
     display: flex !important;
     position: absolute;
     top: auto;
-    bottom: 195px;
-    right: 14px;
+    bottom: 135px;
+    right: 12px;
     z-index: 11;
-    background: rgba(255, 255, 255, 0.90);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.95);
-    border-radius: 16px;
-    padding: 9px 12px;
-    gap: 9px;
-    box-shadow: 0 12px 30px -6px rgba(11, 37, 69, 0.14);
-    max-width: 210px;
-    transform: rotate(2deg);
+    border-radius: 14px;
+    padding: 7px 10px;
+    gap: 7px;
+    box-shadow: 0 10px 24px -4px rgba(11, 37, 69, 0.12);
+    max-width: 180px;
+    transform: rotate(1.5deg);
   }
   .hero-support-iconbox {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  .hero-support-iconbox svg {
+    width: 18px;
+    height: 18px;
   }
   .hero-support-title {
-    font-size: 0.86rem;
+    font-size: 0.78rem;
     font-weight: 700;
   }
   .hero-support-subtext {
-    font-size: 0.72rem;
+    font-size: 0.65rem;
+    line-height: 1.25;
   }
 
-  /* Circular / Pill Overlapping Book Badge */
+  /* Circular / Pill Overlapping Book Badge: positioned on lower left above dock, away from doctor's face */
   .hero-overlap-badge {
     display: flex !important;
     position: absolute;
     top: auto;
-    bottom: 195px;
-    left: 14px;
+    bottom: 135px;
+    left: 12px;
     z-index: 11;
   }
   .badge-pill-container {
-    padding: 9px 12px;
-    gap: 9px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.90);
+    padding: 7px 11px;
+    gap: 7px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.95);
-    box-shadow: 0 12px 30px -6px rgba(11, 37, 69, 0.14);
+    box-shadow: 0 10px 24px -4px rgba(11, 37, 69, 0.12);
   }
   .badge-tooth-iconbox {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+  .badge-tooth-iconbox svg {
+    width: 16px;
+    height: 16px;
+  }
+  .badge-orbit-ring {
+    width: 42px;
+    height: 42px;
+    top: -6px;
+    left: -6px;
   }
   .badge-pill-title {
-    font-size: 0.84rem;
+    font-size: 0.76rem;
+    font-weight: 700;
   }
   .badge-pill-sub {
-    font-size: 0.7rem;
+    font-size: 0.64rem;
   }
   .hero-socials {
     display: none;
   }
 
-  /* Bottom Dock on mobile */
+  /* Bottom Dock on mobile: strictly centered with transform: none and edge-to-edge symmetry */
   .dock-divider {
     display: none;
   }
   .hero-bottom-dock {
     position: absolute;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    width: calc(100% - 24px);
-    max-width: none;
-    padding: 10px 12px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.92);
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px) !important;
+    max-width: none !important;
+    transform: none !important;
+    padding: 8px 10px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     border: 1px solid rgba(255, 255, 255, 0.95);
-    box-shadow: 0 18px 44px -10px rgba(11, 37, 69, 0.18);
+    box-shadow: 0 14px 34px -6px rgba(11, 37, 69, 0.14);
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     z-index: 15;
   }
   .dock-services-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+    gap: 5px;
     width: 100%;
   }
   .dock-service-item {
@@ -1126,34 +1192,39 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 6px 4px;
-    border-radius: 10px;
-    gap: 3px;
+    padding: 5px 2px;
+    border-radius: 8px;
+    gap: 2px;
     text-align: center;
     background: #f8fafd;
     border: 1px solid #e2e8f0;
-    min-height: 48px;
+    min-height: 42px;
   }
   .dock-service-iconbox {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+  }
+  .dock-service-iconbox svg {
+    width: 14px;
+    height: 14px;
   }
   .dock-service-title {
-    font-size: 0.72rem;
+    font-size: 0.66rem;
     font-weight: 700;
+    line-height: 1.15;
     white-space: nowrap;
   }
   .dock-review-box {
     max-width: 100%;
     border-top: 1px solid rgba(11, 37, 69, 0.08);
-    padding-top: 6px;
+    padding-top: 4px;
     padding-left: 0;
   }
   .dock-review-quote {
-    font-size: 0.76rem;
-    line-height: 1.3;
-    margin-bottom: 4px;
+    font-size: 0.68rem;
+    line-height: 1.25;
+    margin-bottom: 2px;
   }
   .dock-review-author-row {
     display: flex;
@@ -1161,14 +1232,14 @@
     justify-content: space-between;
   }
   .dock-author-avatar {
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
   }
   .dock-author-name {
-    font-size: 0.76rem;
+    font-size: 0.7rem;
   }
   .dock-review-stars {
-    font-size: 0.72rem;
+    font-size: 0.65rem;
   }
 }
 
@@ -1181,89 +1252,101 @@
     border-radius: 20px;
   }
   .hero-navbar {
-    padding: 12px 14px;
+    padding: 10px 12px;
   }
   .nav-brand-logo {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
   .nav-brand-text {
-    font-size: 1.25rem;
+    font-size: 1.18rem;
   }
   .nav-cta {
-    padding: 7px 12px;
-    font-size: 0.8rem;
-    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    border-radius: 8px;
   }
   .mobile-nav-toggle {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
   }
+
+  /* Doctor portrait starts below top card area */
+  .hero-doctor-container {
+    top: 165px;
+    height: calc(100% - 165px);
+  }
+
   .hero-story-container {
-    top: 68px;
-    left: 12px;
-    right: 12px;
-    max-width: 310px;
+    top: 56px;
+    left: 10px;
+    right: 10px;
+    max-width: 300px;
+    gap: 5px;
   }
   .hero-headline-block {
-    top: 68px;
-    left: 12px;
-    right: 12px;
-    max-width: 300px;
-    padding: 12px 14px;
+    top: 56px;
+    left: 10px;
+    right: 10px;
+    max-width: 285px;
+    padding: 8px 12px;
   }
   .hero-headline {
-    font-size: 1.7rem;
+    font-size: 1.32rem;
   }
+
   .hero-support-card {
-    bottom: 185px;
-    right: 10px;
-    max-width: 175px;
-    padding: 7px 10px;
-    gap: 7px;
+    bottom: 120px;
+    right: 8px;
+    max-width: 160px;
+    padding: 6px 8px;
+    gap: 6px;
   }
   .hero-support-title {
-    font-size: 0.8rem;
+    font-size: 0.74rem;
   }
   .hero-support-subtext {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
   }
+
   .hero-overlap-badge {
-    bottom: 185px;
-    left: 10px;
+    bottom: 120px;
+    left: 8px;
   }
   .badge-pill-container {
-    padding: 7px 10px;
-    gap: 7px;
+    padding: 6px 9px;
+    gap: 6px;
   }
   .badge-pill-title {
-    font-size: 0.8rem;
+    font-size: 0.72rem;
   }
   .badge-pill-sub {
-    font-size: 0.68rem;
+    font-size: 0.6rem;
   }
+
   .hero-bottom-dock {
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
-    width: calc(100% - 16px);
-    padding: 8px 10px;
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
+    width: calc(100% - 12px) !important;
+    padding: 6px 8px;
   }
   .dock-services-row {
     gap: 4px;
   }
   .dock-service-item {
-    padding: 5px 2px;
+    padding: 4px 2px;
+    min-height: 38px;
   }
   .dock-service-iconbox {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
   .dock-service-title {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
   }
   .dock-review-quote {
-    font-size: 0.72rem;
+    font-size: 0.65rem;
   }
 }
